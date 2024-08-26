@@ -1,3 +1,5 @@
+// types/types.ts
+
 export interface ChartData {
   browser: string;
   visitors: number;
@@ -7,11 +9,6 @@ export interface ChartData {
 export interface Widget {
   id: number;
   name: string;
-  chartData: ChartData[];
-}
-
-export interface CategoryType {
-  id: number;
-  name: string;
-  widgets: Widget[];
+  chartType: 'pie' | 'stackedBar' | ''; // Add 'pie' and 'stackedBar' as possible values
+  chartData: ChartData[] | string; // Adjust type if necessary
 }

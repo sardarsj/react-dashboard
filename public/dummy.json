@@ -6,6 +6,7 @@
       {
         "id": 11,
         "name": "Cloud Accounts",
+        "chartType": "pie",
         "chartData": [
           { "browser": "Connected ", "visitors": 2, "fill": "blue" },
           { "browser": "Not Connected", "visitors": 2, "fill": "red" }
@@ -14,6 +15,7 @@
       {
         "id": 12,
         "name": "Cloud Account Risk Assessment",
+        "chartType": "pie",
         "chartData": [
           { "browser": "Failed", "visitors": 1689, "fill": "red" },
           { "browser": "Warning", "visitors": 681, "fill": "yellow" },
@@ -30,11 +32,13 @@
       {
         "id": 13,
         "name": "Top 5 Namespace Specific Alerts",
-        "chartData": [null]
+        "chartType": "",
+        "chartData": ""
       },
       {
         "id": 14,
         "name": "Workload Alerts",
+        "chartType": "",
         "chartData": []
       }
     ]
@@ -46,12 +50,24 @@
       {
         "id": 15,
         "name": "Image Risk Assessment",
-        "chartData": []
+        "chartType": "stackedBar",
+        "chartData": [
+          { "browser": "critical", "visitors": 1689, "fill": "red" },
+          { "browser": "high", "visitors": 681, "fill": "yellow" },
+          { "browser": "Not available", "visitors": 36, "fill": "gray" },
+          { "browser": "Passed", "visitors": 7253, "fill": "green" }
+        ]
       },
       {
         "id": 16,
         "name": "Image Security Issues",
-        "chartData": []
+        "chartType": "stackedBar",
+        "chartData": [
+          { "browser": "critical", "visitors": 1689, "fill": "red" },
+          { "browser": "high", "visitors": 210, "fill": "yellow" },
+          { "browser": "Not available", "visitors": 36, "fill": "gray" },
+          { "browser": "Passed", "visitors": 7253, "fill": "green" }
+        ]
       }
     ]
   },
@@ -62,11 +78,13 @@
       {
         "id": 17,
         "name": "Sample 1",
+        "chartType": "",
         "chartData": []
       },
       {
         "id": 18,
         "name": "Sample 2",
+        "chartType": "",
         "chartData": []
       }
     ]
