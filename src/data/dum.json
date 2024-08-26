@@ -1,0 +1,39 @@
+{
+    "charts": {
+      "barChart": {
+        "labels": ["Total Vulnerabilities"],
+        "datasets": [
+          {
+            "label": "Critical",
+            "data": [70],
+            "backgroundColor": "#B71C1C"
+          },
+          {
+            "label": "High",
+            "data": [150],
+            "backgroundColor": "#FF6F00"
+          },
+          {
+            "label": "Medium",
+            "data": [320],
+            "backgroundColor": "#FFEB3B"
+          },
+          {
+            "label": "Low",
+            "data": [991],
+            "backgroundColor": "#F5F5F5"
+          }
+        ]
+      },
+      "pieChart": {
+        "labels": ["Critical", "High", "Medium", "Low"],
+        "datasets": [
+          {
+            "data": [70, 150, 320, 991],
+            "backgroundColor": ["#B71C1C", "#FF6F00", "#FFEB3B", "#F5F5F5"]
+          }
+        ]
+      }
+    }
+  }
+  
