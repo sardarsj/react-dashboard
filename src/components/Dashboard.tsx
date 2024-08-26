@@ -66,7 +66,7 @@ const Dashboard: React.FC = () => {
   return (
     <main className="p-4 bg-slate-200">
       <Navbar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-      <div className="flex justify-between items-center mt-4">
+      <div className="flex justify-between items-center mt-10">
         <h3 className="text-lg font-semibold">CNAPP Dashboard</h3>
         <div className="flex gap-1 text-xs">
           <button

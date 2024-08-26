@@ -62,10 +62,10 @@ const Widget: React.FC<WidgetProps> = ({ widget, removeWidget }) => {
     plugins: {
       legend: {
         display: true,
-        position: "right" as const, // Move legend to the right
+        position: "right" as const,
       },
       datalabels: {
-        display: false, // Disable data labels
+        display: false,
       },
       tooltip: {
         callbacks: {
@@ -91,7 +91,7 @@ const Widget: React.FC<WidgetProps> = ({ widget, removeWidget }) => {
     : null;
 
   const barChartOptions = {
-    indexAxis: "y" as const, // Horizontal bar chart
+    indexAxis: "y" as const,
     scales: {
       x: {
         beginAtZero: true,
@@ -109,7 +109,7 @@ const Widget: React.FC<WidgetProps> = ({ widget, removeWidget }) => {
         position: "right" as const,
       },
       datalabels: {
-        display: false, // Disable the datalabels plugin
+        display: false,
       },
       tooltip: {
         callbacks: {
@@ -127,8 +127,8 @@ const Widget: React.FC<WidgetProps> = ({ widget, removeWidget }) => {
 
   return (
     <div
-      className="border-2 bg-white rounded-lg p-2 flex-col justify-center items-center"
-      style={{ height: "300px", width: "400px", margin: "0 auto" }}
+      className="border-2 bg-white rounded-xl p-2 flex-col justify-center items-center"
+      style={{ height: "300px", width: "100%", maxWidth: "400px", margin: "0 auto" }}
     >
       <div className="flex justify-between items-center">
         <h3 className="font-semibold text-sm">{widget.name}</h3>
@@ -141,7 +141,8 @@ const Widget: React.FC<WidgetProps> = ({ widget, removeWidget }) => {
         <Doughnut
           data={pieChartData}
           options={pieChartOptions}
-          plugins={[ChartDataLabels as any]} // ChartDataLabels plugin is still included but disabled
+          plugins={[ChartDataLabels as any]}
+          className="w-full h-full sm:w-3/4 sm:h-3/4 md:w-1/2 md:h-1/2" // Adjust size based on screen size
         />
       ) : isStackedBarChart && barChartData ? (
         <>
@@ -150,8 +151,9 @@ const Widget: React.FC<WidgetProps> = ({ widget, removeWidget }) => {
             options={barChartOptions}
             height={200}
             width={300}
+            className="w-full h-full sm:w-3/4 sm:h-3/4 md:w-1/2 md:h-1/2" // Adjust size based on screen size
           />
-          <div className="mt-2 flex-col h-full items-center justify-center">
+          <div className="mt-2 flex-col h-full items-center justify-center rounded-xl">
             {chartData.map((data: any, index: number) => (
               <p key={index} className="text-sm">
                 <div className="relative -top-20 ">

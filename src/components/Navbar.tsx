@@ -15,7 +15,7 @@ interface NavbarProps {
 
 const Navbar: React.FC<NavbarProps> = ({ searchTerm, setSearchTerm }) => {
   return (
-    <nav className="w-full p-2 mb-2 flex justify-between items-center shadow-lg bg-white">
+    <nav className="fixed top-0 left-0 w-full bg-white p-2 flex justify-between items-center shadow-lg">
       <div>
         <Breadcrumb>
           <BreadcrumbList>

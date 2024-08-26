@@ -15,7 +15,7 @@ const Category: React.FC<CategoryProps> = ({ category, removeWidget, openDrawer 
   return (
     <div className="mb-10">
       <h2 className="text-lg font-bold mb-2">{category.name}</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 ">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 sm:gap-8 lg:gap-4 ">
         {category.widgets.map((widget) => (
           <Widget
             key={widget.id}
