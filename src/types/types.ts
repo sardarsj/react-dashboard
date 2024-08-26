@@ -10,5 +10,11 @@ export interface Widget {
   id: number;
   name: string;
   chartType: 'pie' | 'stackedBar' | ''; // Add 'pie' and 'stackedBar' as possible values
-  chartData: ChartData[] | string; // Adjust type if necessary
+  chartData: ChartData[] | string;
+}
+
+export interface CategoryType {
+  id: number;
+  name: string;
+  widgets: Widget[];
 }

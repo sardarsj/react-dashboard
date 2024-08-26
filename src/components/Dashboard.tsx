@@ -7,7 +7,6 @@ import { FaClock } from "react-icons/fa6";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./ui/select";
 import WidgetDrawer from "./WidgetDrawer";
 
-
 const Dashboard: React.FC = () => {
   const [categories, setCategories] = useState<CategoryType[]>([]);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -52,11 +51,11 @@ const Dashboard: React.FC = () => {
   };
 
   return (
-    <main className="p-4 bg-slate-200 ">
+    <main className="p-4 bg-slate-200">
       <div className="flex justify-between items-center">
         <h3 className="text-lg font-semibold">CNAPP Dashboard</h3>
         <div className="flex gap-1 text-xs">
-          <button 
+          <button
             className="border-2 border-gray-600 rounded-md h-8 bg-white font-semibold text-gray-600 px-1"
             onClick={() => setIsDrawerOpen(true)}
           >
@@ -98,9 +97,10 @@ const Dashboard: React.FC = () => {
       <WidgetDrawer
         isOpen={isDrawerOpen}
         onOpenChange={(open) => setIsDrawerOpen(open)}
+        categories={categories}
+        addWidget={addWidget}
+        removeWidget={removeWidget}
       />
-      
-      
     </main>
   );
 };
