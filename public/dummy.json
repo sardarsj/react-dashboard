@@ -17,10 +17,10 @@
         "name": "Cloud Account Risk Assessment",
         "chartType": "pie",
         "chartData": [
-          { "browser": "Failed", "visitors": 1689, "fill": "red" },
-          { "browser": "Warning", "visitors": 681, "fill": "yellow" },
-          { "browser": "Not available", "visitors": 36, "fill": "gray" },
-          { "browser": "Passed", "visitors": 7253, "fill": "green" }
+          { "browser": "Failed", "visitors": 1689, "fill": "#B9140F" },
+          { "browser": "Warning", "visitors": 681, "fill": "#19A55A" },
+          { "browser": "Not available", "visitors": 36, "fill": "#C9D0E2" },
+          { "browser": "Passed", "visitors": 7253, "fill": "#19A55A" }
         ]
       }
     ]

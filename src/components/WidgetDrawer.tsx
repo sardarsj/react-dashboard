@@ -99,7 +99,7 @@ const WidgetDrawer: React.FC<WidgetDrawerProps> = ({
               {categories
                 .find((cat) => cat.name === "CSPM Executive Dashboard")
                 ?.widgets.map((widget) => (
-                  <div key={widget.id} className="flex items-center">
+                  <div key={widget.id} className="flex items-center ml-4">
                     <input
                       type="checkbox"
                       checked={checkedWidgets[widget.id] || false}

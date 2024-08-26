@@ -9,8 +9,8 @@ export interface ChartData {
 export interface Widget {
   id: number;
   name: string;
-  chartType: 'pie' | 'stackedBar' | ''; // Add 'pie' and 'stackedBar' as possible values
-  chartData: ChartData[] | string;
+  chartType: 'pie' | 'stackedBar' | 'doughnut'; // Add 'pie' and 'stackedBar' as possible values
+  chartData: any[];
 }
 
 export interface CategoryType {
