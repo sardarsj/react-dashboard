@@ -8,7 +8,7 @@
         "name": "Cloud Accounts",
         "chartType": "pie",
         "chartData": [
-          { "browser": "Connected ", "visitors": 2, "fill": "theme_blue" },
+          { "browser": "Connected ", "visitors": 2, "fill": "#5578FF" },
           { "browser": "Not Connected", "visitors": 2, "fill": "#F0F8FF" }
         ]
       },
@@ -18,9 +18,9 @@
         "chartType": "pie",
         "chartData": [
           { "browser": "Failed", "visitors": 1689, "fill": "#B9140F" },
-          { "browser": "Warning", "visitors": 681, "fill": "#19A55A" },
-          { "browser": "Not available", "visitors": 36, "fill": "#C9D0E2" },
-          { "browser": "Passed", "visitors": 7253, "fill": "#19A55A" }
+          { "browser": "Passed", "visitors": 7253, "fill": "#19A55A" },
+          { "browser": "Not available", "visitors": 36, "fill": "#FAD732" },
+          { "browser": "Warning", "visitors": 681, "fill": "#C9D0E2" }
         ]
       }
     ]
@@ -52,10 +52,10 @@
         "name": "Image Risk Assessment",
         "chartType": "stackedBar",
         "chartData": [
-          { "browser": "critical", "visitors": 1689, "fill": "red" },
-          { "browser": "high", "visitors": 681, "fill": "yellow" },
-          { "browser": "Not available", "visitors": 36, "fill": "gray" },
-          { "browser": "Passed", "visitors": 7253, "fill": "green" }
+          { "browser": "critical", "visitors": 1689, "fill": "#680500" },
+          { "browser": "high", "visitors": 681, "fill": "#C7291A" },
+          { "browser": "medium", "visitors": 36, "fill": "#EB9132" },
+          { "browser": "low", "visitors": 7253, "fill": "#F0C341" }
         ]
       },
       {
@@ -63,10 +63,10 @@
         "name": "Image Security Issues",
         "chartType": "stackedBar",
         "chartData": [
-          { "browser": "critical", "visitors": 1689, "fill": "red" },
-          { "browser": "high", "visitors": 210, "fill": "yellow" },
-          { "browser": "Not available", "visitors": 36, "fill": "gray" },
-          { "browser": "Passed", "visitors": 7253, "fill": "green" }
+          { "browser": "critical", "visitors": 1689, "fill": "#680500" },
+          { "browser": "high", "visitors": 681, "fill": "#C7291A" },
+          { "browser": "medium", "visitors": 36, "fill": "#EB9132" },
+          { "browser": "low", "visitors": 7253, "fill": "#F0C341" }
         ]
       }
     ]

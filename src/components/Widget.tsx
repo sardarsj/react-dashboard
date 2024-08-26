@@ -1,5 +1,5 @@
 import React from "react";
-import { Pie, Bar, Doughnut } from "react-chartjs-2";
+import { Bar, Doughnut } from "react-chartjs-2";
 import {
   Chart as ChartJS,
   ArcElement,
@@ -11,7 +11,6 @@ import {
 } from "chart.js";
 import ChartDataLabels from "chartjs-plugin-datalabels";
 import { Widget as WidgetType } from "../types/types";
-// import { TbBorderRadius } from "react-icons/tb";
 import { RxCross2 } from "react-icons/rx";
 
 // Register required elements
@@ -66,12 +65,7 @@ const Widget: React.FC<WidgetProps> = ({ widget, removeWidget }) => {
         position: "right" as const, // Move legend to the right
       },
       datalabels: {
-        color: "black",
-        anchor: "end" as const,
-        align: "start" as const, // Align labels on the start of the segment, which will make them appear on the right side
-        formatter: function (value: any) {
-          return value;
-        },
+        display: false, // Disable data labels
       },
       tooltip: {
         callbacks: {
@@ -147,7 +141,7 @@ const Widget: React.FC<WidgetProps> = ({ widget, removeWidget }) => {
         <Doughnut
           data={pieChartData}
           options={pieChartOptions}
-          plugins={[ChartDataLabels as any]}
+          plugins={[ChartDataLabels as any]} // ChartDataLabels plugin is still included but disabled
         />
       ) : isStackedBarChart && barChartData ? (
         <>
@@ -157,7 +151,7 @@ const Widget: React.FC<WidgetProps> = ({ widget, removeWidget }) => {
             height={200}
             width={300}
           />
-          <div className="mt-2 flex-col justify-center">
+          <div className="mt-2 flex-col h-full items-center justify-center">
             {chartData.map((data: any, index: number) => (
               <p key={index} className="text-sm">
                 <div className="relative -top-20 ">
