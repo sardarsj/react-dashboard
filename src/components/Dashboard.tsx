@@ -1,4 +1,3 @@
-// Dashboard.tsx
 import React, { useEffect, useState } from "react";
 import Category from "./Category";
 import { Widget, CategoryType } from "../types/types";
@@ -7,9 +6,12 @@ import { BsThreeDotsVertical } from "react-icons/bs";
 import { FaClock } from "react-icons/fa6";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./ui/select";
 import WidgetDrawer from "./WidgetDrawer";
+import Navbar from "./Navbar"; // Import Navbar
 
 const Dashboard: React.FC = () => {
   const [categories, setCategories] = useState<CategoryType[]>([]);
+  const [filteredCategories, setFilteredCategories] = useState<CategoryType[]>([]);
+  const [searchTerm, setSearchTerm] = useState(""); // State for search term
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   useEffect(() => {
@@ -18,6 +20,7 @@ const Dashboard: React.FC = () => {
         const response = await fetch("/dummy.json");
         const data: CategoryType[] = await response.json();
         setCategories(data);
+        setFilteredCategories(data);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -26,34 +29,44 @@ const Dashboard: React.FC = () => {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    const filtered = categories.map((category) => ({
+      ...category,
+      widgets: category.widgets.filter((widget) =>
+        widget.name.toLowerCase().includes(searchTerm.toLowerCase())
+      ),
+    })).filter(category => category.widgets.length > 0);
+
+    setFilteredCategories(filtered);
+  }, [searchTerm, categories]);
+
   const addWidget = (categoryId: number, widget: Widget) => {
-    setCategories(
-      categories.map((category) =>
-        category.id === categoryId
-          ? { ...category, widgets: [...category.widgets, widget] }
-          : category
-      )
+    const updatedCategories = categories.map((category) =>
+      category.id === categoryId
+        ? { ...category, widgets: [...category.widgets, widget] }
+        : category
     );
+    setCategories(updatedCategories);
+    setFilteredCategories(updatedCategories); // Update filtered categories as well
   };
 
   const removeWidget = (categoryId: number, widgetId: number) => {
-    setCategories(
-      categories.map((category) =>
-        category.id === categoryId
-          ? {
-              ...category,
-              widgets: category.widgets.filter(
-                (widget) => widget.id !== widgetId
-              ),
-            }
-          : category
-      )
+    const updatedCategories = categories.map((category) =>
+      category.id === categoryId
+        ? {
+            ...category,
+            widgets: category.widgets.filter((widget) => widget.id !== widgetId),
+          }
+        : category
     );
+    setCategories(updatedCategories);
+    setFilteredCategories(updatedCategories); // Update filtered categories as well
   };
 
   return (
     <main className="p-4 bg-slate-200">
-      <div className="flex justify-between items-center">
+      <Navbar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+      <div className="flex justify-between items-center mt-4">
         <h3 className="text-lg font-semibold">CNAPP Dashboard</h3>
         <div className="flex gap-1 text-xs">
           <button
@@ -85,13 +98,13 @@ const Dashboard: React.FC = () => {
       </div>
 
       <div className="p-2">
-        {categories.map((category) => (
+        {filteredCategories.map((category) => (
           <Category
             key={category.id}
             category={category}
             addWidget={addWidget}
             removeWidget={removeWidget}
-            openDrawer={() => setIsDrawerOpen(true)} // Pass the function to open the drawer
+            openDrawer={() => setIsDrawerOpen(true)}
           />
         ))}
       </div>

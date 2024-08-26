@@ -8,9 +8,14 @@ import {
   BreadcrumbSeparator,
 } from "../components/ui/Breadcrumb";
 
-const Navbar = () => {
-  return ( 
-    <nav className="w-full p-2 flex justify-between items-center shadow-lg">
+interface NavbarProps {
+  searchTerm: string;
+  setSearchTerm: (term: string) => void;
+}
+
+const Navbar: React.FC<NavbarProps> = ({ searchTerm, setSearchTerm }) => {
+  return (
+    <nav className="w-full p-2 mb-2 flex justify-between items-center shadow-lg bg-white">
       <div>
         <Breadcrumb>
           <BreadcrumbList>
@@ -26,8 +31,14 @@ const Navbar = () => {
       </div>
       <div className="flex items-center gap-2">
         <div className="flex border-2 items-center rounded-lg bg-slate-200">
-          <CiSearch className="text-lg"/>
-          <input className="bg-slate-200 outline-none text-sm p-[2px]" type="text" placeholder="Search anything..."/>
+          <CiSearch className="text-lg" />
+          <input
+            className="bg-slate-200 outline-none text-sm p-[2px]"
+            type="text"
+            placeholder="Search anything..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)} // Handle input change
+          />
         </div>
         <div>
           <PiBellRingingLight className="text-blue-400 text-lg" />
