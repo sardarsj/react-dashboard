@@ -10,7 +10,7 @@ import {
 
 const Navbar = () => {
   return ( 
-    <nav className="w-screen p-2 flex justify-between items-center shadow-lg">
+    <nav className="w-full p-2 flex justify-between items-center shadow-lg">
       <div>
         <Breadcrumb>
           <BreadcrumbList>

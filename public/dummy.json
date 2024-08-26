@@ -8,8 +8,8 @@
         "name": "Cloud Accounts",
         "chartType": "pie",
         "chartData": [
-          { "browser": "Connected ", "visitors": 2, "fill": "blue" },
-          { "browser": "Not Connected", "visitors": 2, "fill": "red" }
+          { "browser": "Connected ", "visitors": 2, "fill": "theme_blue" },
+          { "browser": "Not Connected", "visitors": 2, "fill": "#F0F8FF" }
         ]
       },
       {

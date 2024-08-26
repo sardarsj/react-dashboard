@@ -31,14 +31,15 @@ const WidgetDrawer: React.FC<WidgetDrawerProps> = ({
   addWidget,
   removeWidget,
 }) => {
-  // State to keep track of checked widgets
-  const [checkedWidgets, setCheckedWidgets] = useState<{ [key: number]: boolean }>({});
+  const [checkedWidgets, setCheckedWidgets] = useState<{
+    [key: number]: boolean;
+  }>({});
 
   useEffect(() => {
     // Initialize the checked state based on the existing widgets
     const initialCheckedState: { [key: number]: boolean } = {};
-    categories.forEach(category => {
-      category.widgets.forEach(widget => {
+    categories.forEach((category) => {
+      category.widgets.forEach((widget) => {
         initialCheckedState[widget.id] = true; // Assume all widgets are checked initially
       });
     });
@@ -46,7 +47,7 @@ const WidgetDrawer: React.FC<WidgetDrawerProps> = ({
   }, [categories]);
 
   const handleCheckboxChange = (widgetId: number) => {
-    setCheckedWidgets(prevState => {
+    setCheckedWidgets((prevState) => {
       const newState = { ...prevState, [widgetId]: !prevState[widgetId] };
       // Notify parent to remove or add the widget based on checked status
       const widgetToUpdate = findWidgetById(widgetId);
@@ -64,7 +65,7 @@ const WidgetDrawer: React.FC<WidgetDrawerProps> = ({
   const findWidgetById = (widgetId: number) => {
     // Find and return the widget by its ID
     for (const category of categories) {
-      const widget = category.widgets.find(widget => widget.id === widgetId);
+      const widget = category.widgets.find((widget) => widget.id === widgetId);
       if (widget) {
         return { ...widget, categoryId: category.id };
       }
@@ -75,7 +76,7 @@ const WidgetDrawer: React.FC<WidgetDrawerProps> = ({
   return (
     <Drawer open={isOpen} onOpenChange={onOpenChange}>
       <DrawerTrigger asChild>
-        <Button onClick={() => onOpenChange(true)}>Open Drawer</Button>
+        {/* <Button onClick={() => onOpenChange(true)}>Open Drawer</Button> */}
       </DrawerTrigger>
       <DrawerContent>
         <DrawerHeader className="flex justify-between items-center border-2 bg-blue-900 text-white font-semibold p-1">
@@ -96,8 +97,8 @@ const WidgetDrawer: React.FC<WidgetDrawerProps> = ({
             </TabsList>
             <TabsContent value="cspm">
               {categories
-                .find(cat => cat.name === 'CSPM Executive Dashboard')
-                ?.widgets.map(widget => (
+                .find((cat) => cat.name === "CSPM Executive Dashboard")
+                ?.widgets.map((widget) => (
                   <div key={widget.id} className="flex items-center">
                     <input
                       type="checkbox"
@@ -109,9 +110,9 @@ const WidgetDrawer: React.FC<WidgetDrawerProps> = ({
                 ))}
             </TabsContent>
             <TabsContent value="cwpp">
-            {categories
-                .find(cat => cat.name === 'CWPP Dashboard')
-                ?.widgets.map(widget => (
+              {categories
+                .find((cat) => cat.name === "CWPP Dashboard")
+                ?.widgets.map((widget) => (
                   <div key={widget.id} className="flex items-center">
                     <input
                       type="checkbox"
@@ -123,9 +124,9 @@ const WidgetDrawer: React.FC<WidgetDrawerProps> = ({
                 ))}
             </TabsContent>
             <TabsContent value="image">
-            {categories
-                .find(cat => cat.name === 'Registry Scan')
-                ?.widgets.map(widget => (
+              {categories
+                .find((cat) => cat.name === "Registry Scan")
+                ?.widgets.map((widget) => (
                   <div key={widget.id} className="flex items-center">
                     <input
                       type="checkbox"
@@ -137,9 +138,9 @@ const WidgetDrawer: React.FC<WidgetDrawerProps> = ({
                 ))}
             </TabsContent>
             <TabsContent value="ticket">
-            {categories
-                .find(cat => cat.name === 'Ticket')
-                ?.widgets.map(widget => (
+              {categories
+                .find((cat) => cat.name === "Ticket")
+                ?.widgets.map((widget) => (
                   <div key={widget.id} className="flex items-center">
                     <input
                       type="checkbox"

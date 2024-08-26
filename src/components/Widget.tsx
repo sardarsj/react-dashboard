@@ -85,7 +85,7 @@ const Widget: React.FC<WidgetProps> = ({ widget, removeWidget }) => {
   };
 
   return (
-    <div className="border-2 bg-white rounded-lg p-2" style={{ width: '600px', margin: '0 auto' }}>
+    <div className="border-2 bg-white rounded-lg p-2" style={{ height: "300px",width: '400px', margin: '0 auto' }}>
       <h3 className="font-semibold text-sm">{widget.name}</h3>
 
       {isPieChart && pieChartData ? (
@@ -99,6 +99,9 @@ const Widget: React.FC<WidgetProps> = ({ widget, removeWidget }) => {
       <button className="bg-red-500 border-2 mt-2" onClick={removeWidget}>
         Remove Widget
       </button>
+      <div>
+        
+      </div>
     </div>
   );
 };
