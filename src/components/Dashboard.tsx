@@ -1,3 +1,4 @@
+// Dashboard.tsx
 import React, { useEffect, useState } from "react";
 import Category from "./Category";
 import { Widget, CategoryType } from "../types/types";
@@ -90,6 +91,7 @@ const Dashboard: React.FC = () => {
             category={category}
             addWidget={addWidget}
             removeWidget={removeWidget}
+            openDrawer={() => setIsDrawerOpen(true)} // Pass the function to open the drawer
           />
         ))}
       </div>
