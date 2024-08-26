@@ -8,7 +8,7 @@ interface CategoryProps {
   removeWidget: (categoryId: number, widgetId: number) => void;
 }
 
-const Category: React.FC<CategoryProps> = ({ category, addWidget, removeWidget }) => {
+const Category: React.FC<CategoryProps> = ({ category, removeWidget }) => {
   return (
     <div className="mb-4">
       <h2 className="text-lg font-bold mb-2">{category.name}</h2>

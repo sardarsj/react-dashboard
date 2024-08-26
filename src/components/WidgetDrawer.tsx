@@ -109,13 +109,46 @@ const WidgetDrawer: React.FC<WidgetDrawerProps> = ({
                 ))}
             </TabsContent>
             <TabsContent value="cwpp">
-              {/* Similar code for CWPP */}
+            {categories
+                .find(cat => cat.name === 'CWPP Dashboard')
+                ?.widgets.map(widget => (
+                  <div key={widget.id} className="flex items-center">
+                    <input
+                      type="checkbox"
+                      checked={checkedWidgets[widget.id] || false}
+                      onChange={() => handleCheckboxChange(widget.id)}
+                    />
+                    <label className="ml-2">{widget.name}</label>
+                  </div>
+                ))}
             </TabsContent>
             <TabsContent value="image">
-              {/* Similar code for Image */}
+            {categories
+                .find(cat => cat.name === 'Registry Scan')
+                ?.widgets.map(widget => (
+                  <div key={widget.id} className="flex items-center">
+                    <input
+                      type="checkbox"
+                      checked={checkedWidgets[widget.id] || false}
+                      onChange={() => handleCheckboxChange(widget.id)}
+                    />
+                    <label className="ml-2">{widget.name}</label>
+                  </div>
+                ))}
             </TabsContent>
             <TabsContent value="ticket">
-              {/* Similar code for Ticket */}
+            {categories
+                .find(cat => cat.name === 'Ticket')
+                ?.widgets.map(widget => (
+                  <div key={widget.id} className="flex items-center">
+                    <input
+                      type="checkbox"
+                      checked={checkedWidgets[widget.id] || false}
+                      onChange={() => handleCheckboxChange(widget.id)}
+                    />
+                    <label className="ml-2">{widget.name}</label>
+                  </div>
+                ))}
             </TabsContent>
           </Tabs>
         </DrawerDescription>
